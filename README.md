@@ -29,7 +29,7 @@ Open the browser (Chrome or Firefox) and check the JavaSCript console:
 
     Running tests:
     ...FE
-    Tests: undefined, Assertions: 4, Passed: 3, Failed: 1, Errors: 1
+    Tests: 2, Assertions: 4, Passed: 3, Failed: 1, Errors: 1
     Failed: top of paragraph should be at a multiple of line-height
     Off by 1px
     <p>

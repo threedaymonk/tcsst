@@ -79,7 +79,7 @@ tcsst = (function(){
   };
 
   TestCase.prototype.report = function(){
-    this.reporter.report();
+    this.reporter.report(this.tests.length);
   };
 
   // Test
