@@ -15,18 +15,19 @@ Add jQuery and `tcsst.js` to your header:
 <script src="tcsst.js"></script>
 ```
 
-Define your tests:
+Define your tests in terms of CSS selectors. Specify assertions using
+`test.assert(boolean, optionalMessage)`:
 
 ```javascript
 tcsst(function(tc){
   tc.test('top of paragraph should be at a multiple of line-height', 'p',
-    function(test, el){
+    function(test, element){
       var lineHeight = parseInt($('body').css('line-height'), 10);
-      var diff = $(el).offset().top % lineHeight;
+      var diff = $(element).offset().top % lineHeight;
       test.assert((0 == diff), 'Off by ' + diff + 'px');
     });
   tc.test('something should go wrong in a badly-written test', 'em',
-    function(test, el){
+    function(test, element){
       throw('oh no!');
     });
 });
