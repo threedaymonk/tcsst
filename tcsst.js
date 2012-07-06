@@ -10,20 +10,30 @@ tcsst = (function(){
     this.numErrors = 0;
   };
 
+  ConsoleLogReporter.prototype.flushDots = function(){
+    console.log(this.results.join(''));
+    this.results = [];
+  };
+
+  ConsoleLogReporter.prototype.dot = function(glyph){
+    this.results.push(glyph);
+    if (this.results.length >= 72) this.flushDots();
+  }
+
   ConsoleLogReporter.prototype.pass = function(){
     this.numPassed += 1;
-    this.results.push('.');
+    this.dot('.');
   };
 
   ConsoleLogReporter.prototype.fail = function(description, html){
     this.numFailed += 1;
-    this.results.push('F');
+    this.dot('F');
     this.errors.push('Failed: ' + description + '\n' + html);
   };
 
   ConsoleLogReporter.prototype.error = function(description, err){
     this.numErrors += 1;
-    this.results.push('E');
+    this.dot('E');
     this.errors.push('Error: ' + description + '\n' + err);
   };
 
@@ -32,7 +42,7 @@ tcsst = (function(){
   };
 
   ConsoleLogReporter.prototype.report = function(numTests){
-    console.log(this.results.join(''));
+    this.flushDots();
     console.log(
       ['Tests: '      + numTests,
        'Assertions: ' + (this.numPassed + this.numFailed),
