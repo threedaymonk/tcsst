@@ -19,9 +19,16 @@ Define your tests:
 
 ```javascript
 tcsst(function(tc){
-  tc.test('paragraphs should have some property', 'p', function(test, element){
-    test.assert(somethingTrue, 'Explanation in case of failure');
-  });
+  tc.test('top of paragraph should be at a multiple of line-height', 'p',
+    function(test, el){
+      var lineHeight = parseInt($('body').css('line-height'), 10);
+      var error = $(el).offset().top % lineHeight;
+      test.assert((0 == error), 'Off by ' + error + 'px');
+    });
+  tc.test('something should go wrong in a badly-written test', 'em',
+    function(test, el){
+      throw('oh no!');
+    });
 });
 ```
 
