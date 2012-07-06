@@ -33,7 +33,7 @@ tcsst(function(tc){
 });
 ```
 
-Open the browser (Chrome or Firefox) and check the JavaSCript console:
+Open the browser (Chrome or Firefox) and check the JavaScript console:
 
     Running tests:
     ...FE
