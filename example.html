@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Some CSS for demonstration purposes -->
+    <style>
+      html {
+        width: 100%;
+      }
+      body {
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 auto;
+        padding: 0;
+        max-width: 40em;
+      }
+      p {
+        margin: 0 0 24px 0;
+        padding: 0;
+      }
+      code {
+        font-size: 14px;
+      }
+      /* Uncomment the rule below to fix the vertical rhythm */
+      /*
+      p code { line-height: 0; }
+      */
+    </style>
+
+    <!-- These two lines are needed to use tcsst -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="tcsst.js"></script>
+
+    <!-- Define some tests -->
+    <script>
+      tcsst(function(tc){
+        tc.test('top of paragraph should be at a multiple of line-height', 'p',
+          function(test, el){
+            var lineHeight = parseInt($('body').css('line-height'), 10);
+            var error = $(el).offset().top % lineHeight;
+            test.assert((0 == error), el, 'Off by ' + error + 'px');
+          });
+        tc.test('something should go wrong in a badly-written test', 'em',
+          function(test, el){
+            throw('oh no!');
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+      Here is an introductory paragraph of text
+    </p>
+
+    <p>
+      This paragraph contains <em>emphasised</em> and <strong>strong</strong>
+      text, but the height of this paragraph should still end up as a multiple
+      of the line-height, i.e. 24, 48, 72, 96 pixels, etc.
+    </p>
+
+    <p>
+      This paragraph <code>contains some code</code>, which causes it to be
+      slightly larger than an integer multiple of the line-height.
+    </p>
+
+    <p>
+      Subsequent paragraphs are out of alignment with the vertical rhythm, and
+      will cause the tests to fail. It's possible to fix the extra pixel by
+      setting the line-height of code to zero or to a number less than about
+      (line-height - 2px).
+    </p>
+</html>
