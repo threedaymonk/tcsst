@@ -41,7 +41,8 @@
           });
         tc.test('something should go wrong in a badly-written test', 'em',
           function(test, el){
-            throw('oh no!');
+            throw('oh no!'); // Remove this line to eliminate the error
+            test.assert(true);
           });
       });
     </script>
@@ -68,4 +69,5 @@
       setting the line-height of code to zero or to a number less than about
       (line-height - 2px).
     </p>
+  </body>
 </html>
