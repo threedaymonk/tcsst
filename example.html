@@ -36,8 +36,8 @@
         tc.test('top of paragraph should be at a multiple of line-height', 'p',
           function(test, el){
             var lineHeight = parseInt($('body').css('line-height'), 10);
-            var error = $(el).offset().top % lineHeight;
-            test.assert((0 == error), 'Off by ' + error + 'px');
+            var diff = $(el).offset().top % lineHeight;
+            test.assert((0 == diff), 'Off by ' + diff + 'px');
           });
         tc.test('something should go wrong in a badly-written test', 'em',
           function(test, el){
