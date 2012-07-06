@@ -56,6 +56,7 @@ window.tcsst = (function(console, $){
   // TestCase
 
   var TestCase = function(){
+    this.ok = true;
     this.tests = [];
     this.reporter = new ConsoleLogReporter();
   };
@@ -75,11 +76,13 @@ window.tcsst = (function(console, $){
   };
 
   TestCase.prototype.fail = function(element, description){
+    this.ok = false;
     this.reporter.fail(description, element.outerHTML);
     $(element).addClass('tcsst-fail');
   };
 
   TestCase.prototype.error = function(err, description){
+    this.ok = false;
     this.reporter.error(description, err);
   };
 
@@ -129,14 +132,31 @@ window.tcsst = (function(console, $){
     head.appendChild(styleElement);
   };
 
+  var complete = false;
+  var testCases =[];
+
   var define = function(f){
     var testCase = new TestCase();
     f(testCase);
-    $(document).ready(function(){
-      addCSS('.tcsst-fail { outline: 2px solid red; background-color: rgba(255,0,0,0.2); };');
-      testCase.run();
-    });
+    testCases.push(testCase);
   };
 
-  return define;
+  $(document).ready(function(){
+    addCSS('.tcsst-fail { outline: 2px solid red; background-color: rgba(255,0,0,0.2); };');
+    testCases.forEach(function(testCase){
+      testCase.run();
+    });
+    complete = true;
+  });
+
+  var allTestsOK = function(){
+    var failures = testCases.filter(function(tc){ return !tc.ok; }).length;
+    return 0 === failures;
+  };
+
+  return {
+    testCase: define,
+    complete: function(){ return complete; },
+    ok: allTestsOK
+  };
 })(window.console, window.jQuery);
