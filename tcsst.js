@@ -1,4 +1,5 @@
-tcsst = (function(){
+window.tcsst = (function(console, $){
+  "use strict";
 
   // ConsoleLogReporter
 
@@ -18,7 +19,7 @@ tcsst = (function(){
   ConsoleLogReporter.prototype.dot = function(glyph){
     this.results.push(glyph);
     if (this.results.length >= 72) this.flushDots();
-  }
+  };
 
   ConsoleLogReporter.prototype.pass = function(){
     this.numPassed += 1;
@@ -84,7 +85,7 @@ tcsst = (function(){
 
   TestCase.prototype.run = function(){
     this.reporter.start();
-    this.tests.forEach(function(t){ t() });
+    this.tests.forEach(function(t){ t(); });
     this.report();
   };
 
@@ -138,4 +139,4 @@ tcsst = (function(){
   };
 
   return define;
-})();
+})(window.console, window.jQuery);
