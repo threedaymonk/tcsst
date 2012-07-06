@@ -52,7 +52,7 @@ Open the browser (Chrome or Firefox) and check the JavaScript console:
 Alternatively, you can run your tests headlessly in PhantomJS directly from the
 command line:
 
-		./run-test.js example.html
+    ./run-test.js example.html
 
 ## Limitations
 
