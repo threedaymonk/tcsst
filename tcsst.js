@@ -53,8 +53,8 @@ tcsst = (function(){
     var testCase = this;
     this.tests.push(function(){
       $(selector).each(function(_, element){
-        var test = new Test(testCase, description);
-        test.run(implementation, element);
+        var test = new Test(testCase, description, element);
+        test.run(implementation);
       });
     });
   };
@@ -84,26 +84,27 @@ tcsst = (function(){
 
   // Test
 
-  var Test = function(testCase, description){
+  var Test = function(testCase, description, element){
     this.testCase = testCase;
     this.description = description;
+    this.element = element;
   };
 
-  Test.prototype.run = function(implementation, element){
+  Test.prototype.run = function(implementation){
     try {
-      implementation(this, element);
+      implementation(this, this.element);
     } catch(err) {
       this.testCase.error(err, this.description);
     }
   };
 
-  Test.prototype.assert = function(passed, element, message){
+  Test.prototype.assert = function(passed, message){
     if (passed) {
       this.testCase.pass();
     } else {
       var description = this.description;
       if (message) description += '\n' + message;
-      this.testCase.fail(element, description);
+      this.testCase.fail(this.element, description);
     }
   };
 
