@@ -49,13 +49,17 @@ Open the browser (Chrome or Firefox) and check the JavaScript console:
     Error: something should go wrong in a badly-written test
     oh no! 
 
+Alternatively, you can run your tests headlessly in PhantomJS directly from the
+command line:
+
+		./run-test.js example.html
+
 ## Limitations
 
-* Only tested in Chrome and Firefox
+* Only tested in Chrome, Firefox, and PhantomJS
 * Definitely won't work in IE at present
 * No backtraces when an error occurs in a test
 
 ## To do (maybe)
 
 * Add alternative reporters: call an endpoint, for example
-* Command-line integration
