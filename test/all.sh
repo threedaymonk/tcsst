@@ -10,9 +10,10 @@ check_result() {
 	if [ $expected -eq $actual ]; then
 		echo "*** OK ***"
 	else
-		echo "*** Not OK ***"
+		echo "*** Not OK: expected $expected, got $actual ***"
 		RETURN=1
 	fi
+	echo
 }
 
 echo "*** This should pass: ***"
