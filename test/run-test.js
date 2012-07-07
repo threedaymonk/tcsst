@@ -35,7 +35,7 @@ var runNext = function(args){
 
   page.open(args[0], function(status){
     if ('success' === status) {
-      waitForTests()
+      waitForTests();
     } else {
       phantom.exit(2);
     }
