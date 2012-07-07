@@ -122,6 +122,11 @@ window.tcsst = (function(console, $){
     }
   };
 
+  Test.prototype.assertEqual = function(expected, actual){
+    this.assert((expected === actual),
+                'Expected ' + expected + ', got ' + actual);
+  };
+
   // Utility
 
   var addCSS = function(css){
