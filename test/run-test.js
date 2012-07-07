@@ -23,8 +23,8 @@ var waitForTests = function(){
   }
 };
 
-page.open(system.args[1], function(loaded){
-  if (loaded) {
+page.open(system.args[1], function(status){
+  if (status === 'success') {
     waitForTests()
   } else {
     phantom.exit(2);

@@ -25,4 +25,7 @@ check_result fail.html 1
 echo "*** This should have an error: ***"
 check_result error.html 1
 
+echo "*** This should fail to load: ***"
+check_result does-not-exist.html 2
+
 exit $RETURN
