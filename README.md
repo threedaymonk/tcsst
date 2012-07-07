@@ -16,7 +16,7 @@ Add jQuery and `tcsst.js` to your header:
 ```
 
 Define your tests in terms of CSS selectors. Specify assertions using
-`test.assert(boolean, optionalMessage)`:
+`test.assert(boolean, optionalMessage)` etc:
 
 ```javascript
 tcsst(function(tc){
@@ -54,6 +54,11 @@ command line:
 
     ./test/run-test.js example.html
 
+## Assertions
+
+    assert(boolean, optionalMessage)
+    assertEqual(expected, actual)
+
 ## Limitations
 
 * Only tested in Chrome, Firefox, and PhantomJS
@@ -62,4 +67,5 @@ command line:
 
 ## To do (maybe)
 
+* Add more assertions
 * Add alternative reporters: call an endpoint, for example
