@@ -15,8 +15,8 @@ Add jQuery and `tcsst.js` to your header:
 <script src="tcsst.js"></script>
 ```
 
-Define your tests in terms of CSS selectors. Specify assertions using
-`test.assert(boolean, optionalMessage)` etc:
+Define your tests in terms of CSS selectors. Assert propositions using the
+methods listed below:
 
 ```javascript
 tcsst(function(tc){
@@ -56,8 +56,19 @@ command line:
 
 ## Assertions
 
-    assert(boolean, optionalMessage)
-    assertEqual(expected, actual)
+### assert(*boolean* proposition, *string* optionalMessage)
+
+Asserts that `boolean` is true. Prints message on failure, if supplied. This is
+the basic unit from which all other assertions are composed.
+
+### assertEqual(*any* expected, *any* actual)
+
+Asserts that `expected` and `actual` are equal, using `===`.
+
+### assertInDelta(*number* expected, *number* actual, *number* epsilon)
+
+Asserts that the difference between `expected` and `actual` is no more than
+`epsilon`.
 
 ## Limitations
 

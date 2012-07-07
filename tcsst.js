@@ -127,6 +127,13 @@ window.tcsst = (function(console, $){
                 'Expected ' + expected + ', got ' + actual);
   };
 
+  Test.prototype.assertInDelta = function(expected, actual, epsilon){
+    var delta = Math.abs(expected - actual);
+    this.assert((delta <= epsilon),
+                'Expected ' + expected + ' and ' + actual +
+                ' to be within ' + epsilon + ' of each other');
+  };
+
   // Utility
 
   var addCSS = function(css){
