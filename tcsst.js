@@ -50,7 +50,7 @@ window.tcsst = (function(console, $){
        'Passed: '     + this.numPassed,
        'Failed: '     + this.numFailed,
        'Errors: '     + this.numErrors].join(', '));
-    this.errors.forEach(function(e){ console.log(e); });
+    this.errors.forEach(function(e){ console.log('\n' + e); });
   };
 
   // TestCase
