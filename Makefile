@@ -2,7 +2,10 @@
 
 SRC_FILES="tcsst.js"
 
-all: lint
+all: lint test
 
 lint:
 	jshint $(SRC_FILES)
+
+test:
+	./test/all.sh

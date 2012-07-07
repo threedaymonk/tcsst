@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+			p { font-weight: bold; }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="../tcsst.js"></script>
+
+    <script>
+      tcsst.testCase(function(tc){
+        tc.test('paragraph text should be bold', 'p',
+          function(test, el){
+						var weight = $(el).css('font-weight');
+            test.assertEqual('bold', weight);
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+      This should be bold.
+    </p>
+  </body>
+</html>
