@@ -24,7 +24,7 @@ tcsst(function(tc){
     function(test, element){
       var lineHeight = parseInt($('body').css('line-height'), 10);
       var diff = $(element).offset().top % lineHeight;
-      test.assert((0 == diff), 'Off by ' + diff + 'px');
+      test.assert((0 === diff), 'Off by ' + diff + 'px');
     });
   tc.test('something should go wrong in a badly-written test', 'em',
     function(test, element){
