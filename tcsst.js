@@ -134,6 +134,26 @@ window.tcsst = (function(console, $){
                 ' to be within ' + epsilon + ' of each other');
   };
 
+  Test.prototype.assertLT = function(maximum, actual){
+    this.assert((actual < maximum),
+                'Expected ' + actual + ' < ' + maximum);
+  };
+
+  Test.prototype.assertLTE = function(maximum, actual){
+    this.assert((actual <= maximum),
+                'Expected ' + actual + ' <= ' + maximum);
+  };
+
+  Test.prototype.assertGT = function(minimum, actual){
+    this.assert((actual > minimum),
+                'Expected ' + actual + ' > ' + minimum);
+  };
+
+  Test.prototype.assertGTE = function(minimum, actual){
+    this.assert((actual >= minimum),
+                'Expected ' + actual + ' >= ' + minimum);
+  };
+
   // Utility
 
   var addCSS = function(css){
