@@ -58,20 +58,37 @@ command line:
 
 ## Assertions
 
-### assert(*boolean* proposition, *string* optionalMessage)
+### assert(passed, message)
 
-Asserts that `boolean` is true.
-Prints message on failure, if supplied.
+Asserts that the boolean `passed` is true.
+Prints `message` on failure, if supplied.
 This is the basic unit from which all other assertions are composed.
 
-### assertEqual(*any* expected, *any* actual)
+### assertEqual(expected, actual)
 
 Asserts that `expected` and `actual` are equal, using `===`.
 
-### assertInDelta(*number* expected, *number* actual, *number* epsilon)
+### assertInDelta(expected, actual, epsilon)
 
 Asserts that the difference between `expected` and `actual` is no more than
 `epsilon`.
+All parameters should be numbers.
+
+### assertLT(maximum, actual)
+
+Asserts that `actual` is less than `maximum`.
+
+### assertLTE(maximum, actual)
+
+Asserts that `actual` is less than or equal to `maximum`.
+
+### assertGT(minimum, actual)
+
+Asserts that `actual` is greater than `maximum`.
+
+### assertGTE(maximum, actual)
+
+Asserts that `actual` is greater than or equal to `maximum`.
 
 ## Limitations
 
