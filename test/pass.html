@@ -2,7 +2,7 @@
 <html>
   <head>
     <style>
-			p { font-weight: bold; }
+      p { font-weight: bold; }
     </style>
 
     <script src="jquery.min.js"></script>
@@ -12,7 +12,7 @@
       tcsst.testCase(function(tc){
         tc.test('paragraph text should be bold', 'p',
           function(test, el){
-						var weight = $(el).css('font-weight');
+            var weight = $(el).css('font-weight');
             test.assertEqual('bold', weight);
           });
       });

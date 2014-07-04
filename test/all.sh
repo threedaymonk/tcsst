@@ -4,16 +4,16 @@ RETURN=0
 cd $(dirname $0)
 
 check_result() {
-	./run-test.js "$1"
-	actual=$?
-	expected=$2
-	if [ $expected -eq $actual ]; then
-		echo "*** OK ***"
-	else
-		echo "*** Not OK: expected $expected, got $actual ***"
-		RETURN=1
-	fi
-	echo
+  ./run-test.js "$1"
+  actual=$?
+  expected=$2
+  if [ $expected -eq $actual ]; then
+    echo "*** OK ***"
+  else
+    echo "*** Not OK: expected $expected, got $actual ***"
+    RETURN=1
+  fi
+  echo
 }
 
 echo "*** This should pass: ***"
