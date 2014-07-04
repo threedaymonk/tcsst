@@ -8,15 +8,15 @@ Because life's too short to click around.
 
 ## Use it
 
-Add jQuery and `tcsst.js` to your header:
+Add jQuery (if not already available) and `tcsst.js` to your header:
 
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="tcsst.js"></script>
 ```
 
-Define your tests in terms of CSS selectors. Assert propositions using the
-methods listed below:
+Define your tests in terms of CSS selectors.
+Assert propositions using the methods listed below:
 
 ```javascript
 tcsst.testCase(function(tc){
@@ -33,7 +33,9 @@ tcsst.testCase(function(tc){
 });
 ```
 
-Open the browser (Chrome or Firefox) and check the JavaScript console:
+Open the page in a browser (Chrome or Firefox).
+Elements that fail assertions will be highlighted in red.
+Check the JavaScript console for more details:
 
     Running tests:
     ...FE
@@ -58,8 +60,9 @@ command line:
 
 ### assert(*boolean* proposition, *string* optionalMessage)
 
-Asserts that `boolean` is true. Prints message on failure, if supplied. This is
-the basic unit from which all other assertions are composed.
+Asserts that `boolean` is true.
+Prints message on failure, if supplied.
+This is the basic unit from which all other assertions are composed.
 
 ### assertEqual(*any* expected, *any* actual)
 
