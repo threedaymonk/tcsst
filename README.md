@@ -19,7 +19,7 @@ Define your tests in terms of CSS selectors. Assert propositions using the
 methods listed below:
 
 ```javascript
-tcsst(function(tc){
+tcsst.testCase(function(tc){
   tc.test('top of paragraph should be at a multiple of line-height', 'p',
     function(test, element){
       var lineHeight = parseInt($('body').css('line-height'), 10);
